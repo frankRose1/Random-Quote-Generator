@@ -30,7 +30,7 @@ var quotes = [
 //selects a random quote object from the quotes array
 // returns the randomly selected quote object
 function getRandomQuote() {
-	var randomNum = Math.floor(Math.random() * 5);
+	var randomNum = Math.floor(Math.random() * quotes.length);
 	for (var i = 0; i < quotes.length; i++ ) {
 		if (quotes[i] == quotes[randomNum]) {
 			return quotes[i];
@@ -42,30 +42,21 @@ function getRandomQuote() {
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
-//printQuote calls the getRandomQuote function and stores the returned quote object in a variable
-//innerHTML changes the selected elements and replaces the content with the randomly generated quote
-// function printQuote() {
-// 	var randQuote = getRandomQuote();
-// 	document.querySelector('.quote').innerHTML = randQuote.quote;
-// 	document.querySelector('.source').innerHTML = randQuote.source;
-// 	if (randQuote.hasOwnProperty('citation') === true) {
-// 		document.querySelector('.citation').innerHTML = randQuote.citation;
-// 	};
-// 	 if (randQuote.hasOwnProperty('year') === true ) {
-// 		document.querySelector('.year').innerHTML = randQuote.year;
-// 	};
-// };
-	
+// printQuote calls the getRandomQuote function and stores the returned quote object in a variable
+// html variable builds an html string that is inserted in to the 	#quote-box div
 function printQuote() {
 	var randQuote = getRandomQuote();
-	var html = document.getElementById('quote-box').innerHTML;
-	html += " ";
-	html += '<p class="quote"> randQuote.quote</p>';
-	html += '<p class="source">randQuote.source</p>';
-	if (randQuote.hasOwnProperty('citation') === true) {
-		html += "<span class='citation'> randQuote.citation </span>";
+	var html = "";
+	html += '<p class="quote">' + randQuote.quote + '</p>';
+	html += '<p class="source">' + randQuote.source ;
+	if (randQuote.hasOwnProperty('citation')) {
+		html += '<span class="citation">' + randQuote.citation + '</span>';
+	}
+	if (randQuote.hasOwnProperty('year') ) {
+		html += '<span class="year">' + randQuote.year + '</span>';
+	} else {
+		html += '</p>';
 	};
-	 if (randQuote.hasOwnProperty('year') === true ) {
-		html += "<span class='year'> randQuote.year </span>";
-	};
+	document.getElementById('quote-box').innerHTML	= html;
 };
+
