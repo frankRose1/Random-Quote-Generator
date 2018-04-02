@@ -5,7 +5,7 @@ var quotes = [
 	{
 		quote: "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.",
 		source: "Steve Jobs",
-		citation:"Steve Jobs' Stanford commencement speech",
+		citation: "Steve Jobs' Stanford commencement speech",
 		year: 2005		
 	},
 	{
@@ -44,9 +44,28 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 
 //printQuote calls the getRandomQuote function and stores the returned quote object in a variable
 //innerHTML changes the selected elements and replaces the content with the randomly generated quote
+// function printQuote() {
+// 	var randQuote = getRandomQuote();
+// 	document.querySelector('.quote').innerHTML = randQuote.quote;
+// 	document.querySelector('.source').innerHTML = randQuote.source;
+// 	if (randQuote.hasOwnProperty('citation') === true) {
+// 		document.querySelector('.citation').innerHTML = randQuote.citation;
+// 	};
+// 	 if (randQuote.hasOwnProperty('year') === true ) {
+// 		document.querySelector('.year').innerHTML = randQuote.year;
+// 	};
+// };
+	
 function printQuote() {
 	var randQuote = getRandomQuote();
-	document.querySelector('.quote').innerHTML = randQuote.quote;
-	document.querySelector('.source').innerHTML = randQuote.source;
+	var html = document.getElementById('quote-box').innerHTML;
+	html += " ";
+	html += '<p class="quote"> randQuote.quote</p>';
+	html += '<p class="source">randQuote.source</p>';
+	if (randQuote.hasOwnProperty('citation') === true) {
+		html += "<span class='citation'> randQuote.citation </span>";
+	};
+	 if (randQuote.hasOwnProperty('year') === true ) {
+		html += "<span class='year'> randQuote.year </span>";
+	};
 };
-	
