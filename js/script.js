@@ -6,7 +6,7 @@ var quotes = [
 		quote: "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.",
 		source: "Steve Jobs",
 		citation: "Steve Jobs' Stanford commencement speech",
-		year: 2005
+		date: 2005
 	},
 	{
 		quote: "The most difficult thing is the decision to act, the rest is merely tenacity.",
@@ -28,13 +28,13 @@ var quotes = [
 		quote: "It is our choices...that show what we truly are, far more than our abilities.",
 		source: "J. K. Rowling",
 		citation: "Harry Potter and The Chamber of Secrets",
-		year: 1999
+		date: 1999
 	},
 	{
 		quote: "All that is gold does not glitter; not all those that wander are lost.",
 		source: "J. R. R. Tolkien",
 		citation: "The Fellowship of the Ring",
-		year: 1954
+		date: 1954
 	},
 	{
 		quote: "Let me not then die ingloriously and without a struggle, but let me first do some great thing that shall be told among men hereafter.",
@@ -66,8 +66,8 @@ function printQuote() {
 	if (randQuote.hasOwnProperty('citation')) {
 		html += '<span class="citation">' + randQuote.citation + '</span>';
 	}
-	if (randQuote.hasOwnProperty('year') ) {
-		html += '<span class="year">' + randQuote.year + '</span>';
+	if (randQuote.hasOwnProperty('date') ) {
+		html += '<span class="year">' + randQuote.date + '</span>';
 	} else {
 		html += '</p>';
 	};
@@ -75,14 +75,17 @@ function printQuote() {
 };
 
 //function that generates and returns random rgb colors
-function randomColor() {
-	var x = Math.floor(Math.random() * 256);
-	var y = Math.floor(Math.random() * 256);
-	var z = Math.floor(Math.random() * 256);
-	var bgColor = "rgb(" + x + "," + y + "," + z + ")";
-	return bgColor;
+function getRandomColor() {
+	function randomColor() {
+		return Math.floor(Math.random() * 256);
+	}
+	return "rgb(" + randomColor() + "," + randomColor() + "," + randomColor() + ")";
 }
 //click event that calls the randomColor function and changes the body background color
-document.getElementById('loadQuote').addEventListener("click", function(){
-	   document.body.style.backgroundColor = randomColor();
+document.getElementById('loadQuote').addEventListener("click", () => {
+		document.body.style.backgroundColor = getRandomColor();
 });
+
+//Both the quote and the background color will refresh after 30 second intervals
+window.setInterval('document.body.style.backgroundColor = getRandomColor()', 30000);
+window.setInterval(printQuote, 30000);
