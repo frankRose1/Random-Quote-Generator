@@ -40,6 +40,17 @@ var quotes = [
 		quote: "Let me not then die ingloriously and without a struggle, but let me first do some great thing that shall be told among men hereafter.",
 		source: "Homer",
 		citation: "The Iliad"
+	},
+	{
+		quote: "Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.",
+		source: "Michael Scott",
+		citation: "The Office"
+	},
+	{
+		quote: "Next time someone complains that you have made a mistake, tell him that may be a good thing. Because without imperfection, neither you nor I would exist.",
+		source: "Stephen Hawking",
+		citation: "Into the Universe",
+		date: 2010
 	}
 ]
 
