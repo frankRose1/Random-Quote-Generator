@@ -1,4 +1,3 @@
-//Array that is storing all of the objects with quotes and sources
 const quotes = [
 	{
 		quote: "The only way to do great work is to love what you do. If you haven't found it yet, keep looking. Don't settle.",
@@ -96,6 +95,7 @@ const quotes = [
 	}
 ]
 
+//FUNCTIONS
 //pulls a random quote object from the quotes array
  const getRandomQuote = function() {
 	const randomNum = Math.floor(Math.random() * quotes.length);
@@ -129,10 +129,7 @@ const getRandomColor = function() {
 	return "rgb(" + randomRGBValue() + "," + randomRGBValue() + "," + randomRGBValue() + ")";
 }
 
-//Both the quote and the background color will refresh after 30 second intervals
-window.setInterval('document.body.style.backgroundColor = getRandomColor()', 30000);
-window.setInterval(printQuote, 30000);
-
+//EVENT HANDLERS
 // when user clicks anywhere on the button, the "printQuote" function is called
 document.getElementById('loadQuote').addEventListener("click", printQuote, false);
 
@@ -140,3 +137,8 @@ document.getElementById('loadQuote').addEventListener("click", printQuote, false
 document.getElementById('loadQuote').addEventListener("click", () => {
 		document.body.style.backgroundColor = getRandomColor();
 });
+
+
+//Both the quote and the background color will refresh after 30 second intervals
+window.setInterval('document.body.style.backgroundColor = getRandomColor()', 30000);
+window.setInterval(printQuote, 30000);
