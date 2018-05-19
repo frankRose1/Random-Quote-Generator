@@ -106,16 +106,15 @@ const quotes = [
 // html variable builds an html string that is inserted in to the #quote-box div
 const printQuote = function() {
 	const randQuote = getRandomQuote();
-	let html = "";
-	html += '<p class="quote">' + randQuote.quote + '</p>';
-	html += '<p class="source">' + randQuote.source ;
+	let html = `<p class="quote">${randQuote.quote}</p>
+	            <p class="source">${randQuote.source}` ;
 	if (randQuote.hasOwnProperty('citation')) {
-		html += '<span class="citation">' + randQuote.citation + '</span>';
+		html += `<span class="citation">${randQuote.citation}</span>`;
 	}
 	if (randQuote.hasOwnProperty('date') ) {
-		html += '<span class="year">' + randQuote.date + '</span>';
+		html += `<span class="year">${randQuote.date}</span>`;
 	} else {
-		html += '</p>';
+		html += `</p>`;
 	};
 	document.getElementById('quote-box').innerHTML	= html;
 };
