@@ -123,21 +123,20 @@ const randomRGBValue = function() {
 		return Math.floor(Math.random() * 256);
 	}
 
-//function that generates and returns random rgb colors
+//returns random rgb colors
 const getRandomColor = function() {
 	return "rgb(" + randomRGBValue() + "," + randomRGBValue() + "," + randomRGBValue() + ")";
 }
 
+//get random quote and random bg color
+const randQuoteColor = function(){
+	document.body.style.backgroundColor = getRandomColor();
+	printQuote();
+}
+
 //EVENT HANDLERS
 // when user clicks anywhere on the button, the "printQuote" function is called
-document.getElementById('loadQuote').addEventListener("click", printQuote, false);
-
-//click event that calls the getRandomColor function and changes the body background color
-document.getElementById('loadQuote').addEventListener("click", () => {
-		document.body.style.backgroundColor = getRandomColor();
-});
-
+document.getElementById('loadQuote').addEventListener("click", randQuoteColor, false);
 
 //Both the quote and the background color will refresh after 30 second intervals
-window.setInterval('document.body.style.backgroundColor = getRandomColor()', 30000);
-window.setInterval(printQuote, 30000);
+setInterval(randQuoteColor, 30000);
