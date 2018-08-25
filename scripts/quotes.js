@@ -7,7 +7,7 @@ const quotes = [
         tags : [
                 "Motivation",
                 "Business"
-               ]
+            ]
 	},
 	{
 		quote: "The most difficult thing is the decision to act, the rest is merely tenacity.",
@@ -15,16 +15,16 @@ const quotes = [
         tags : [
                 "Inspiration",
                 "Perserverance"
-               ]
+            ]
 	},
 	{
 		quote: "Don't count the days, make the days count.",
 		source: "Muhammad Ali",
-         tags : [
+        tags : [
                 "Motivation",
                 "Athletics",
                 "Famous Athlete"
-               ]
+            ]
 	},
 	{
 		quote: "Limitations live only in our minds. But if we use our imaginations, our possibilities become limitless.",
@@ -32,7 +32,7 @@ const quotes = [
         tags : [
                 "Inspiration",
                 "Imagination"
-               ]
+            ]
 	},
 	{
 		quote: "A person who never made a mistake never tried anything new.",
@@ -41,7 +41,7 @@ const quotes = [
                 "Historical Figures",
                 "Scientest",
                 "Motivation"
-               ]
+            ]
 	},
 	{
 		quote: "It is our choices...that show what we truly are, far more than our abilities.",
@@ -51,17 +51,17 @@ const quotes = [
         tags : [
                 "Literature",
                 "Fiction"
-               ]
+            ]
 	},
 	{
-		quote: "All that is gold does not glitter; not all those that wander are lost.",
+		quote: "All that is gold does not glitter, not all those that wander are lost.",
 		source: "J. R. R. Tolkien",
 		citation: "The Fellowship of the Ring",
 		date: 1954,
         tags : [
                 "Literature",
                 "Fiction"
-               ]
+            ]
 	},
 	{
 		quote: "Let me not then die ingloriously and without a struggle, but let me first do some great thing that shall be told among men hereafter.",
@@ -71,7 +71,7 @@ const quotes = [
                 "Literature",
                 "Epic Poetry",
                 "Ancient Greek Culture"
-               ]
+            ]
 	},
 	{
 		quote: "Would I rather be feared or loved? Easy. Both. I want people to be afraid of how much they love me.",
@@ -80,7 +80,7 @@ const quotes = [
         tags : [
                 "Comedy",
                 "T.V."
-               ]
+            ]
 	},
 	{
 		quote: "Next time someone complains that you have made a mistake, tell him that may be a good thing. Because without imperfection, neither you nor I would exist.",
@@ -91,52 +91,26 @@ const quotes = [
                 "Historical Figures",
                 "Scientest",
                 "Inspiration"
-               ]
+            ]
+	},
+	{
+		quote: "You can do anything but not everything",
+		source: "David Allen",
+		citation: "Making It All Work",
+		date: 2009,
+		tags: [
+			"Management",
+			"Motivation",
+			"Business"
+		]
+	},
+	{
+		quote: "Obstacles don't have to stop you. If you run into a wall, don't turn around and give up. Figure out how to climb it, go through it, or work around it.",
+		source: "Michael Jordan",
+		tags: [
+			"Work",
+			"Obstacles",
+			"Climb"
+		]
 	}
-]
-
-//FUNCTIONS
-//pulls a random quote object from the quotes array
- const getRandomQuote = function() {
-	const randomNum = Math.floor(Math.random() * quotes.length);
-	return quotes[randomNum];
-};
-
-// printQuote calls the getRandomQuote function and stores the returned quote object in a variable
-// html variable builds an html string that is inserted in to the #quote-box div
-const printQuote = function() {
-	const randQuote = getRandomQuote();
-	let html = `<p class="quote">${randQuote.quote}</p>
-	            <p class="source">${randQuote.source}` ;
-	if (randQuote.hasOwnProperty('citation')) {
-		html += `<span class="citation">${randQuote.citation}</span>`;
-	}
-	if (randQuote.hasOwnProperty('date') ) {
-		html += `<span class="year">${randQuote.date}</span>`;
-	} else {
-		html += `</p>`;
-	};
-	document.getElementById('quote-box').innerHTML	= html;
-};
-
-const randomRGBValue = function() {
-		return Math.floor(Math.random() * 256);
-	}
-
-//returns random rgb colors
-const getRandomColor = function() {
-	return "rgb(" + randomRGBValue() + "," + randomRGBValue() + "," + randomRGBValue() + ")";
-}
-
-//get random quote and random bg color
-const randQuoteColor = function(){
-	document.body.style.backgroundColor = getRandomColor();
-	printQuote();
-}
-
-//EVENT HANDLERS
-// when user clicks anywhere on the button, the "printQuote" function is called
-document.getElementById('loadQuote').addEventListener("click", randQuoteColor, false);
-
-//Both the quote and the background color will refresh after 30 second intervals
-setInterval(randQuoteColor, 30000);
+];
